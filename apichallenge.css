@@ -3,6 +3,7 @@
 	-webkit-animation: mymove 5s; 
 	padding-top: 25px;
 	position: relative;
+	margin: auto;
 	width:150px;
     height:150px;
     border-radius:100px;
@@ -35,12 +36,17 @@
 	color:black;
 }
 
+#mostPopularChampions {
+	margin: auto;
+	width: 75%;
+}
 #mostPopularChampions th{
+
 	text-align: center;
 }
 /* Chrome, Safari, Opera */ 
 @-webkit-keyframes mymove {
-    0%   {top: 100px;}
-    10% {top: 0px;}
-    100% {top: 0px;}
+    0%   {left: 2000px;}
+    40% {left: 0px;}
+    100% {left: 0px;}
 }
