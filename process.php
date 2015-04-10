@@ -1,6 +1,6 @@
 <?php
 $apikey = "";
-$servername = "localhost";
+$servername = "";
 $username = "";
 $password = "";
 $dbname = "";
