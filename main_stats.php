@@ -37,8 +37,9 @@ require_once 'common.php';
             </div>
         </div>
     </nav>
-    <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Most Popular NURF Champions</div>
+    <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Highest Win Rates</div>
     <?php
+    
         $winrates = getChampWinRates($stats_collection);
         $counter = 1;
         echo'<table id="mostPopularChampions" class="table"
@@ -57,7 +58,19 @@ require_once 'common.php';
             echo '</tr>
             </table>';
     ?>
-            
+    <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Division of Ranks</div>
+    <table id="ranksTable" class="table">
+    	<tr>
+	    <th style="text-align:center">Bronze Logo</th>
+	    <th style="text-align:center">Silver Logo</th>
+	    <th style="text-align:center">Gold Logo</th>
+	    <th style="text-align:center">Platinum Logo</th>
+	    <th style="text-align:center">Diamond Logo</th>
+	</tr>
+	<tr>
+	   <!-- display the logos and percentage per league!-->
+	</tr>
+    </table>        
     <script>
         $( document ).ready(function() {
             $('#champ1').circliful();
