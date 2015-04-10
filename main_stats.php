@@ -10,12 +10,11 @@ require_once 'common.php';
     
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Riot API Challenge</title>
-    <link href="../css/jquery.circliful.css" rel="stylesheet" type="text/css" />
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="apichallenge.css" rel="stylesheet">
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.circliful.min.js"></script>
+    <script src="./js/jquery-1.11.2.min.js"></script>
+    <script src="./circliful/js/jquery.circliful.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +31,7 @@ require_once 'common.php';
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="../index.php">Recent Game Stats</a></li>
+                
                     <li class="active"><a href="#">Nurf Game Statistics</a></li>
                 </ul>
             </div>
@@ -40,19 +39,19 @@ require_once 'common.php';
     </nav>
     <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Most Popular NURF Champions</div>
     <?php
-        $winrates = getChampWinRates($collection);
+        $winrates = getChampWinRates($stats_collection);
         $counter = 1;
         echo'<table id="mostPopularChampions" class="table"
                 <tr>';
-                foreach($winrates as $champId => $stats){
-                    $games = $stats->games;
-                    $wins = $stats->wins;
+                foreach($winrates as $stats){
                     $winrate = $stats->winrate;
-                    $pickrate = $stats->pickrate;
-                    $champPic = getChampImage($conn, $champId);
+                    $champPic = getChampImage($conn, $stats->championId);
                     echo "<td>";
-                    echo    '<div id="champ' . $counter . '" class="circle" data-dimension="200" data-text="' . $winrate . '" data-info="Sion" data-width="20" data-fontsize="30" data-percent="50" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd" data-total="100" data-part="' . $winrate . '" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff"></div>"';
+                    echo    '<div id="champ' . $counter . '" class="circle" data-dimension="200" data-text="' . $winrate . '" data-info="Sion" data-width="20" data-fontsize="30" data-percent="50" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd" data-total="100" data-part="' . $winrate . '" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff"></div>';
                     echo "</td>";
+		    if($counter >= 5){
+		    	break;
+		    }
                     $counter++;
                 }
             echo '</tr>
@@ -68,9 +67,6 @@ require_once 'common.php';
             $('#champ5').circliful();
         });
     </script>
-    <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
