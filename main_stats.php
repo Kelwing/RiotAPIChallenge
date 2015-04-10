@@ -1,6 +1,3 @@
-<?php
-require_once 'common.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +7,20 @@ require_once 'common.php';
     
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Riot API Challenge</title>
-    <link href="./circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <!--JQUERY PLUGIN!-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--bootstrap shit !-->
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom stylesheets!-->
     <link href="apichallenge.css" rel="stylesheet">
-    <script src="./js/jquery-1.11.2.min.js"></script>
+    <link href="./barchart-plugin/main.css" rel="stylesheet">
+    <!-- circliful pie chart shit!-->
+    <link href="./circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
     <script src="./circliful/js/jquery.circliful.min.js"></script>
+
+    <!--BARCHART PLUGIN!-->
+    <script src="./barchart-plugin/jchart.js"></script>
+    
 </head>
 
 <body>
@@ -38,26 +44,32 @@ require_once 'common.php';
         </div>
     </nav>
     <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Highest Win Rates</div>
-    <?php
+
+    <table class="table">
+        <tr style="text-align:center">
+            <td style="margin:auto">
+                <div id="winRates" data-sort="true" data-width="600" class="jChart chart-sm">
+                    <div class="define-chart-row" data-color="red" title="Pumpkin">13</div>
+                    <div class="define-chart-row" data-color="gray" title="Pecan">24</div>
+                    <div class="define-chart-row" data-color="green" title="Cherry">17</div>
+                    <div class="define-chart-row" data-color="orange" title="Apple">26</div>
+                    <div class="define-chart-row" data-color="black" title="Rhubarb">12</div>
+                    <div class="define-chart-row" data-color="blue" title="Chocolate Cream">8</div>
+                    <div class="define-chart-footer">10%</div>
+                    <div class="define-chart-footer">20%</div>
+                    <div class="define-chart-footer">30%</div>
+                    <div class="define-chart-footer">40%</div>
+                    <div class="define-chart-footer">50%</div>
+                    <div class="define-chart-footer">60%</div>
+                    <div class="define-chart-footer">70%</div>
+                    <div class="define-chart-footer">80%</div>
+                    <div class="define-chart-footer">90%</div>
+                    <div class="define-chart-footer">100%</div>
+                </div>
+            </td>
+        </tr>
+    </table>
     
-        $winrates = getChampWinRates($stats_collection);
-        $counter = 1;
-        echo'<table id="mostPopularChampions" class="table"
-                <tr>';
-                foreach($winrates as $stats){
-                    $winrate = $stats->winrate;
-                    $champPic = getChampImage($conn, $stats->championId);
-                    echo "<td>";
-                    echo    '<div id="champ' . $counter . '" class="circle" data-dimension="200" data-text="' . $winrate . '" data-info="Sion" data-width="20" data-fontsize="30" data-percent="50" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd" data-total="100" data-part="' . $winrate . '" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff"></div>';
-                    echo "</td>";
-		    if($counter >= 5){
-		    	break;
-		    }
-                    $counter++;
-                }
-            echo '</tr>
-            </table>';
-    ?>
     <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Division of Ranks</div>
     <table id="ranksTable" class="table">
     	<tr>
@@ -78,6 +90,7 @@ require_once 'common.php';
             $('#champ3').circliful();
             $('#champ4').circliful();
             $('#champ5').circliful();
+            $("#winRates").jChart(); 
         });
     </script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
