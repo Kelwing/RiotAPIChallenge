@@ -4,44 +4,16 @@
 	padding-top: 25px;
 	position: relative;
 	margin: auto;
-	width:150px;
-    height:150px;
-    border-radius:100px;
-    font-size:50px;
-    color:#fff;
-    line-height:100px;
     text-align:center;
-    background:#000;
-	background: rgb(0,21,255); 
-	background: -moz-linear-gradient(left,  rgba(0,21,255,1) 0%, rgba(48,248,255,1) 18%, rgba(51,198,31,1) 39%, rgba(255,0,0,1) 64%, rgba(255,0,233,1) 100%); 
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,21,255,1)), color-stop(18%,rgba(48,248,255,1)), color-stop(39%,rgba(51,198,31,1)), color-stop(64%,rgba(255,0,0,1)), color-stop(100%,rgba(255,0,233,1)));
-	background: -webkit-linear-gradient(left,  rgba(0,21,255,1) 0%,rgba(48,248,255,1) 18%,rgba(51,198,31,1) 39%,rgba(255,0,0,1) 64%,rgba(255,0,233,1) 100%); 
-	background: -o-linear-gradient(left,  rgba(0,21,255,1) 0%,rgba(48,248,255,1) 18%,rgba(51,198,31,1) 39%,rgba(255,0,0,1) 64%,rgba(255,0,233,1) 100%); 
-	background: -ms-linear-gradient(left,  rgba(0,21,255,1) 0%,rgba(48,248,255,1) 18%,rgba(51,198,31,1) 39%,rgba(255,0,0,1) 64%,rgba(255,0,233,1) 100%); 
-	background: linear-gradient(to right,  rgba(0,21,255,1) 0%,rgba(48,248,255,1) 18%,rgba(51,198,31,1) 39%,rgba(255,0,0,1) 64%,rgba(255,0,233,1) 100%); 
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0015ff', endColorstr='#ff00e9',GradientType=1 ); 
-
+    /*Circle dimensions*/
+    data-dimension="300";
+    data-width="50";
 }
-.innerCircle{
-	position: relative;
-	margin-bottom:25px;
-	margin-right:25px;
-	margin-left:25px;
-	width:100px;height:100px;
-	border-radius:250px;
-	font-size: 35px;
-	color:#fff;
-	text-align:center; 
-	background-color:white;
-	color:black;
-}
-
 #mostPopularChampions {
 	margin: auto;
 	width: 75%;
 }
 #mostPopularChampions th{
-
 	text-align: center;
 }
 /* Chrome, Safari, Opera */ 

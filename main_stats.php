@@ -1,14 +1,21 @@
+<?php
+require_once 'common.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
-     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Riot API Challenge</title>
+    <link href="../css/jquery.circliful.css" rel="stylesheet" type="text/css" />
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="apichallenge.css" rel="stylesheet">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.circliful.min.js"></script>
 </head>
 
 <body>
@@ -25,64 +32,44 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="../index.html">Recent Game Stats</a></li>
+                    <li><a href="../index.php">Recent Game Stats</a></li>
                     <li class="active"><a href="#">Nurf Game Statistics</a></li>
                 </ul>
-                <form class="navbar-form navbar-right" action="javascript:displayFilters();" method="get" role="search">
-                    <div class="form-group">
-                        <input type="text" id="summonerName" onKeyDown="if(event.keyCode==13) displayFilters();" class="form-control" placeholder="Find Stats" name="name">
-                    </div>
-                    <button type="submit"  class="btn btn-default">Submit</button>
-                </form>
-                <div id="currentGameButton" class="navbar-form navbar-right" ></div>
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </nav>
     <div class="header" style="margin-top:100px; text-align:center; font-size:40px">Most Popular NURF Champions</div>
-    <table id="mostPopularChampions" class="table">
-        <tr>
-            <th>Sion</th>
-            <th>Irelia</th>
-            <th>Sample Summoner</th>
-            <th>Hello world</th>
-            <th>Test</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="circle" >
-                    <div class="innerCircle">57%
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="circle" >
-                    <div class="innerCircle">57%
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="circle" >
-                    <div class="innerCircle">57%
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="circle" >
-                    <div class="innerCircle">57%
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="circle" >
-                    <div class="innerCircle">57%
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    
+    <?php
+        $winrates = getChampWinRates($collection);
+        $counter = 1;
+        echo'<table id="mostPopularChampions" class="table"
+                <tr>';
+                foreach($winrates as $champId => $stats){
+                    $games = $stats->games;
+                    $wins = $stats->wins;
+                    $winrate = $stats->winrate;
+                    $pickrate = $stats->pickrate;
+                    $champPic = getChampImage($conn, $champId);
+                    echo "<td>";
+                    echo    '<div id="champ' . $counter . '" class="circle" data-dimension="200" data-text="' . $winrate . '" data-info="Sion" data-width="20" data-fontsize="30" data-percent="50" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd" data-total="100" data-part="' . $winrate . '" data-icon="long-arrow-up" data-icon-size="28" data-icon-color="#fff"></div>"';
+                    echo "</td>";
+                    $counter++;
+                }
+            echo '</tr>
+            </table>';
+    ?>
+            
+    <script>
+        $( document ).ready(function() {
+            $('#champ1').circliful();
+            $('#champ2').circliful();
+            $('#champ3').circliful();
+            $('#champ4').circliful();
+            $('#champ5').circliful();
+        });
+    </script>
     <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 </body>
