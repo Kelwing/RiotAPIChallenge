@@ -1,22 +1,11 @@
 
-.circle{
-	-webkit-animation: mymove 5s; 
-	padding-top: 25px;
-	position: relative;
-	margin: auto;
+.circle{ 
+    padding-top: 25px;
+    position: relative;
+    margin:0;
     text-align:center;
-    /*Circle dimensions*/
-    data-dimension="300";
-    data-width="50";
 }
-#mostPopularChampions {
-	margin: auto;
-	width: 75%;
-}
-#mostPopularChampions th{
-	text-align: center;
-}
-/* Chrome, Safari, Opera */ 
+ 
 @-webkit-keyframes mymove {
     0%   {left: 2000px;}
     40% {left: 0px;}

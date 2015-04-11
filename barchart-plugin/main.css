@@ -39,10 +39,10 @@
 	float: left;
 }
 .heading {
-	font-size: 8pt;
+	font-size: 15pt;
 	font-weight: bold;
 	color: #aaaaaa;
-	height: 19px;
+	height: 25px;
 }
 .heading-left {
 	text-align: right;
@@ -65,11 +65,11 @@
 	bottom: -10px;
 }
 .chart-label {
-	font-size: 7pt;
+	font-size: 15pt;
 	font-weight: bold;
 	color: #aaaaaa;
 	position: absolute;
-	bottom: -10px;
+	bottom: -20px;
 	z-index:0;
 	float: left;
 }
